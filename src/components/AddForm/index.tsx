@@ -10,16 +10,16 @@ import {
   ModalBody,
   Box,
   IconButton,
-  //   Lorem,
   useDisclosure,
 } from "@chakra-ui/react";
 import { v4 as uuidv4 } from "uuid";
 import WorkoutAdd from "./Form";
 import { useDispatch } from "react-redux";
-// import { Store } from "../../redux/actions/types";
+
 import { addSet } from "../../redux/actions/workoutActions";
 
 import { FaPlus } from "react-icons/fa";
+import { ADD_BTN_TEXT, ADD_SUBMIT, ADD_TITLE } from "../../constants/lang";
 
 const AddSet = (props: any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -32,7 +32,7 @@ const AddSet = (props: any) => {
 
   const handleName = (e: any): void => setName(e.target.value);
   const handleBody = (e: any): void => setBody(e.target.value);
-  // const handleQuantity = (e: any): void => setQuantity(e.target.value);
+
   const clearAll= ()=>{
     setName("")
 setBody("")
@@ -79,14 +79,14 @@ setReps(0)
           variant="outline"
           _hover={{ bg: "teal.700", borderColor: "teal.700" }}
         >
-          Create a set
+         {ADD_BTN_TEXT}
         </Button>
       )}
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Create New Set</ModalHeader>
+          <ModalHeader>{ADD_TITLE}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <WorkoutAdd
@@ -107,7 +107,7 @@ setReps(0)
               onClick={onClose}>
               Close
             </Button>
-            <Button onClick={handleSubmit}>Add Set</Button>
+            <Button onClick={handleSubmit}>{ADD_SUBMIT}</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

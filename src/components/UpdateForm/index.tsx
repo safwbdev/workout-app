@@ -15,6 +15,7 @@ import {
 import WorkoutUpdate from "./Form";
 import { addSet, deleteSet } from "../../redux/actions/workoutActions";
 import { useDispatch } from "react-redux";
+import { CLOSE_BTN_TEXT, UPDATE_SUBMIT, UPDATE_TITLE } from "../../constants/lang";
 
 
 const UpdateSet = ({ data }: any) => {
@@ -55,7 +56,7 @@ const UpdateSet = ({ data }: any) => {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Update Set</ModalHeader>
+          <ModalHeader>{UPDATE_TITLE}</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <WorkoutUpdate
@@ -73,9 +74,9 @@ const UpdateSet = ({ data }: any) => {
 
           <ModalFooter>
             <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+              {CLOSE_BTN_TEXT}
             </Button>
-            <Button onClick={handleSubmit}>Update Set</Button>
+            <Button onClick={handleSubmit}>{UPDATE_SUBMIT}</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>

@@ -8,6 +8,8 @@ import {
   useDisclosure
 } from "@chakra-ui/react";
 import AddForm from "./AddForm"
+import {GiHamburgerMenu}from"react-icons/gi"
+import { NAV_BLOG, NAV_DOCS, NAV_EXAMPLES, NAV_TITLE } from "../constants/lang";
 
 const Header = (props:any) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,37 +28,31 @@ const Header = (props:any) => {
     >
       <Flex align="center" mr={5}>
         <Heading as="h1" size="lg" letterSpacing={"tighter"}>
-          Lift
+          {NAV_TITLE}
         </Heading>
       </Flex>
 
       <Box display={{ base: "block", md: "none" }} onClick={handleToggle}>
-        {/* <HamburgerIcon />lol */}test
+        <GiHamburgerMenu />
       </Box>
 
       <Stack
         direction={{ base: "column", md: "row" }}
-        display={{ base: isOpen ? "block" : "none", md: "flex" }}
+        display={{ base: isOpen ? "block" : "none", md: "none" }}
         width={{ base: "full", md: "auto" }}
         alignItems="center"
         flexGrow={1}
         mt={{ base: 4, md: 0 }}
       >
-        <Text>Docs</Text>
-        <Text>Examples</Text>
-        <Text>Blog</Text>
+        <Text>{NAV_DOCS}</Text>
+        <Text>{NAV_EXAMPLES}</Text>
+        <Text>{NAV_BLOG}</Text>
       </Stack>
 
       <Box
         display={{ base: isOpen ? "block" : "none", md: "block" }}
         mt={{ base: 4, md: 0 }}
       >
-        {/* <Button
-          variant="outline"
-          _hover={{ bg: "teal.700", borderColor: "teal.700" }}
-        >
-          Create a set
-        </Button> */}
         <AddForm />
       </Box>
     </Flex>

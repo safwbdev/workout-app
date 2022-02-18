@@ -2,7 +2,7 @@ export const data = [
   {
     id: "7e89ab5a-6ecb-4151-af5c-4e71a9d19f01",
     quantity: 2,
-    part: "core",
+    part: "Core",
     text: "Jumping Jacks",
     reps: 12,
     day: "mon",
